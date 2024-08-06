@@ -1,11 +1,22 @@
-.weather_info {
-    background-color: skyblue;
+html {
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    background-image: url("./img/aWeatherBK.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0%;
+    margin: 0%;
 }
 /* Navigation*/
 .nav {
-    background-color: yellow;
     overflow: hidden;
     background-color: #333;
+    margin: 0%;
+    position: sticky;
+    padding: 0%;
 }
 li {
     display: inline;
@@ -34,18 +45,15 @@ li {
     text-align: center;
 }
 
-.details {
-    background-color: orange;
+
+.detail_table {
     padding: 10px;
-}
-.detail_pair {
-    background-color: #333;
-    padding: 10px;
-    margin: 5px;
+    margin: 5px auto;
+    border-spacing: 30px;
 }
 .detail_unit {
     background-color: white;
-    margin: 10px auto;
+    margin: 50px auto;
     max-width: 100px;
     padding: 5px;
     height: 75px;
@@ -56,6 +64,18 @@ li {
 
 /*Footer*/
 
-.footer_sect {
+footer {
     background-color: antiquewhite;
+    padding: 10px;
+    margin: 0%;
+}
+
+/*advertissment*/
+
+.ads {
+    background-color: green;
+    max-width: 75% ;
+    height: 50px;
+    margin: auto;
+
 }
