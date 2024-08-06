@@ -39,7 +39,7 @@ li {
 /*Weather details*/
 .temp {
     background-color: white;
-    max-width: 100px;
+    max-width: 200px;
     margin: 10px auto;
     padding: 10px;
     border-radius: 5px;

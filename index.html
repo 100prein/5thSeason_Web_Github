@@ -12,26 +12,38 @@
             <li><a href="./index.html">Home</a></li>
             <li><a href="./pages/forecast.html">Forecast</a></li>
             <li><a href="./pages/prep.html">Prep</a></li>
-            <li style="float:right"><a class="active" href="#about">About</a></li>
+            <li style="float:right" class="time" id="time">12:30 <span id="am-pm">PM</span></li>
+            <div class="date" id="date">
+                Monday, 24 May
+            </div>
+
+            
         </ul>
     
         <div class="temp">
-            <h1>59°F</h1>
+            <h1 class="today" id="current-temp" >
+                <img src="" alt="weather icon" class="w-icon">
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </h1>
+            <p class="time-zone" id="time-zone">New York/North America</p>
+            <p id="country" class="country">NY</p>
+            <p>Broken Clouds</p>
         </div>
         
-        <table class="detail_table">
+        <table class="detail_table" id="current-weather-items">
             <tr>
-                <td  class="detail_unit"><b>Sunrise</b> 5:57AM<br> <b>Sunset</b> <br> 8:06PM</td>
-                <td  class="detail_unit"><b>Precipitation</b><br> 1.1"</td>
+                <td  class="detail_unit weather-items"><b>Sunrise</b> 5:57AM<br> <b>Sunset</b> <br> 8:06PM</td>
+                <td  class="detail_unit weather-items"><b>Precipitation</b><br> 1.1"</td>
                 
             </tr>
             <tr>
-                <td  class="detail_unit"><b>Feels Like</b><br>86°F</td>
-                <td  class="detail_unit"><b>Visibility</b><br> 16 mi</td>
+                <td  class="detail_unit weather-items"><b>Feels Like</b><br>86°F</td>
+                <td  class="detail_unit weather-items"><b>Visibility</b><br> 16 mi</td>
             </tr>
             <tr>
-                <td  class="detail_unit"><b>Humidity</b><br> 67°F</td>
-                <td  class="detail_unit"><b>Pressure</b><br> 30.04 inHg</td>
+                <td  class="detail_unit weather-items"><b>Humidity</b><br> 67°F</td>
+                <td  class="detail_unit weather-items"><b>Pressure</b><br> 30.04 inHg</td>
             </tr>
         </table>
         <footer>
