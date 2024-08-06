@@ -1,6 +1,7 @@
 html {
     padding: 0%;
     margin: 0%;
+    height: 100%;
 }
 
 body {
@@ -67,7 +68,7 @@ li {
 footer {
     background-color: antiquewhite;
     padding: 10px;
-    margin: 0%;
+    margin: 0% ;
 }
 
 /*advertissment*/
