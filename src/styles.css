@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 html {
-    padding: 0%;
-    margin: 0%;
-    height: 100%;
-}
-
-body {
     background-image: url("./img/aWeatherBK.png");
     background-repeat: no-repeat;
     background-size: cover;
+    padding: 0%;
+    margin: 0%;
+    
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+body {
+    
     padding: 0%;
     margin: 0%;
 }
@@ -38,10 +43,10 @@ li {
 
 /*Weather details*/
 .temp {
-    background-color: white;
+    background-color: #A7AFCE;
     max-width: 200px;
     margin: 10px auto;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     text-align: center;
 }
@@ -79,4 +84,46 @@ footer {
     height: 50px;
     margin: auto;
 
+}
+
+/*Forecast*/
+.future-forecast {
+    padding: 25px;
+    bottom: 0;
+    color: black;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.future-forecast .weather-forecast {
+    display: flex;
+}
+
+.weather-forecast .weather-forecast-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.weather-forecast .weather-forecast-item .day {
+    padding: 5px 15px;
+    background: #A7AFCE;
+    border-radius: 50px;
+    text-align: center;
+}
+
+/*Mobile Format*/
+
+@media only screen and (max-width:730px){
+    .future-forecast {
+        align-items: none;
+        overflow-y: scroll;
+    }
 }
