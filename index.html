@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/styles.css">
+    <script src="./src/script.js"></script>
     <title>5th Season | Home</title>
 </head>
 <body>
-    
+   
         <ul class="nav">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./pages/forecast.html">Forecast</a></li>
             <li><a href="./pages/prep.html">Prep</a></li>
-            <li style="float:right" class="time" id="time">12:30 <span id="am-pm">PM</span></li>
-            <div class="date" id="date">
-                Monday, 24 May
-            </div>
 
-            
+            <li style="float:right" class="time" id="current-time">
+                <span id="am-pm">PM</span>
+            </li>
+            <li style="float:right" class="date" id="date">
+                Monday, 24 May
+            </li>
+
+
+           
         </ul>
-    
+   
         <div class="temp">
             <h4 class="today" id="current-temp" >
                 <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
@@ -30,32 +35,43 @@
             <p id="country" class="country">NY</p>
             <p>Broken Clouds</p>
         </div>
-        
+       
         <table class="detail_table" id="current-weather-items">
             <tr>
                 <td  class="detail_unit weather-items"><b>Sunrise</b> 5:57AM<br> <b>Sunset</b> <br> 8:06PM</td>
                 <td  class="detail_unit weather-items"><b>Precipitation</b><br> 1.1"</td>
-                
+               
             </tr>
             <tr>
                 <td  class="detail_unit weather-items"><b>Feels Like</b><br>86°F</td>
                 <td  class="detail_unit weather-items"><b>Visibility</b><br> 16 mi</td>
             </tr>
             <tr>
-                <td  class="detail_unit weather-items"><b>Humidity</b><br> 67°F</td>
+                <td  class="detail_unit weather-items"><b>Humidity</b><br> 67%</td>
                 <td  class="detail_unit weather-items"><b>Pressure</b><br> 30.04 inHg</td>
             </tr>
         </table>
         <footer>
             <!--Ads-->
             <div class="ads">
-                
+               
             </div>
-            
+           
                 <h3>All rights reserved 2024</h3>
                 <h4>Developed by Sekou Traore</h4>
-            
+           
         </footer>
+
+        <script>
+            let time = document.getElementById("current-time");
+            let d = new Date();
+            time.innerHTML = d.toLocaleTimeString();
+
+            let dateEl = document.getElementById("date");
+            let r = new Date();
+            dateEl.innerHTML = r.toLocaleDateString();
+        </script>
 </body>
+
 
 </html>

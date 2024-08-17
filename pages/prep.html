@@ -7,14 +7,19 @@
     <title>5th Season | Preparation</title>
 </head>
 <body>
-    
+   
         <ul class="nav">
             <li><a href="../index.html">Home</a></li>
             <li><a href="./forecast.html">Forecast</a></li>
             <li><a href="./prep.html">Prep</a></li>
-            <li style="float:right"><a class="active" href="#about">About</a></li>
+            <li style="float:right" class="time" id="current-time">
+                <span id="am-pm">PM</span>
+            </li>
+            <li style="float:right" class="date" id="date">
+                Monday, 24 May
+            </li>
         </ul>
-    
+   
         <div class="temp">
             <p>icon</p>
             <h1 class="today" id="current-temp" >59°F</h1>
@@ -22,23 +27,33 @@
             <p id="country" class="country">NY</p>
             <p>Broken Clouds</p>
         </div>
-        
+       
         <h2>Style</h2>
         <img src="" alt="">
         <img src="" alt="">
         <p>Wear something lighter for the heat</p>
         <img src="" alt="">
         <img src="" alt="">
+        <script>
+            let time = document.getElementById("current-time");
+            let d = new Date();
+            time.innerHTML = d.toLocaleTimeString();
+
+            let dateEl = document.getElementById("date");
+            let r = new Date();
+            dateEl.innerHTML = r.toLocaleDateString();
+        </script>
         <footer>
             <!--Ads-->
             <div class="ads">
-                
+               
             </div>
-            
+           
                 <h3>All rights reserved 2024</h3>
                 <h4>Developed by Sekou Traore</h4>
-            
+           
         </footer>
 </body>
+
 
 </html>

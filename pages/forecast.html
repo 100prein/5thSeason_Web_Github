@@ -7,14 +7,18 @@
     <title>5th Season | Forecast</title>
 </head>
 <body>
-    
+   
         <ul class="nav">
             <li><a href="../index.html">Home</a></li>
             <li><a href="./forecast.html">Forecast</a></li>
             <li><a href="./prep.html">Prep</a></li>
-            <li style="float:right"><a class="active" href="#about">About</a></li>
+            <li style="float:right" class="time" id="current-time">
+                <span id="am-pm">PM</span>
+            </li>
+            <li style="float:right" class="date" id="date">
+                Monday, 24 May
+            </li>
         </ul>
-    
         <div class="temp">
             <p>icon</p>
             <h4 class="today" id="current-temp" >59°F</h4>
@@ -22,7 +26,7 @@
             <p id="country" class="country">NY</p>
             <p>Broken Clouds</p>
         </div>
-        
+       
         <div class="future-forecast">
             <div class="weather-forecast" id="weather-forecast">
                 <div class="weather-forecast-item">
@@ -57,16 +61,26 @@
                 </div>
             </div>
         </div>
+        <script>
+            let time = document.getElementById("current-time");
+            let d = new Date();
+            time.innerHTML = d.toLocaleTimeString();
+
+            let dateEl = document.getElementById("date");
+            let r = new Date();
+            dateEl.innerHTML = r.toLocaleDateString();
+        </script>
         <footer>
             <!--Ads-->
             <div class="ads">
-                
+               
             </div>
-            
+           
                 <h3>All rights reserved 2024</h3>
                 <h4>Developed by Sekou Traore</h4>
-            
+           
         </footer>
 </body>
+
 
 </html>
