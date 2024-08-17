@@ -8,70 +8,83 @@
     <title>5th Season | Home</title>
 </head>
 <body>
-   
-        <ul class="nav">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./pages/forecast.html">Forecast</a></li>
-            <li><a href="./pages/prep.html">Prep</a></li>
-
-            <li style="float:right" class="time" id="current-time">
-                <span id="am-pm">PM</span>
-            </li>
-            <li style="float:right" class="date" id="date">
-                Monday, 24 May
-            </li>
-
-
-           
-        </ul>
-   
-        <div class="temp">
-            <h4 class="today" id="current-temp" >
-                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night - 25.6&#176; C</div>
-                <div class="temp">Day - 35.6&#176; C</div>
-            </h4>
-            <p class="time-zone" id="time-zone">New York/North America</p>
-            <p id="country" class="country">NY</p>
-            <p>Broken Clouds</p>
-        </div>
-       
-        <table class="detail_table" id="current-weather-items">
-            <tr>
-                <td  class="detail_unit weather-items"><b>Sunrise</b> 5:57AM<br> <b>Sunset</b> <br> 8:06PM</td>
-                <td  class="detail_unit weather-items"><b>Precipitation</b><br> 1.1"</td>
-               
-            </tr>
-            <tr>
-                <td  class="detail_unit weather-items"><b>Feels Like</b><br>86°F</td>
-                <td  class="detail_unit weather-items"><b>Visibility</b><br> 16 mi</td>
-            </tr>
-            <tr>
-                <td  class="detail_unit weather-items"><b>Humidity</b><br> 67%</td>
-                <td  class="detail_unit weather-items"><b>Pressure</b><br> 30.04 inHg</td>
-            </tr>
-        </table>
-        <footer>
+    <ul class="nav">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./pages/forecast.html">Forecast</a></li>
+        <li><a href="./pages/prep.html">Prep</a></li>
+        <li style="float:right" class="time" id="current-time">
+            <span id="am-pm">PM</span>
+        </li>
+        <li style="float:right" class="date" id="date">
+            Monday, 24 May
+        </li>
+    </ul>
+    
+    <div class="temp">
+        <h4 class="today" id="current-temp">
+            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon" id="weather-icon">
+            <div class="current-temp" id="temp">25.6&#176; C</div>
+        </h4>
+        <p class="time-zone" id="time-zone">New York/North America</p>
+        <p id="country" class="country">NY</p>
+        <p id="weather-description">Broken Clouds</p>
+    </div>
+    
+    <table class="detail_table" id="current-weather-items">
+        <tr>
+            <td class="detail_unit weather-items"><b>Sunrise</b> <span id="sunrise">5:57AM</span><br> <b>Sunset</b> <span id="sunset">8:06PM</span></td>
+            <td class="detail_unit weather-items"><b>Precipitation</b><br> <span id="precipitation">1.1"</span></td>
+        </tr>
+        <tr>
+            <td class="detail_unit weather-items"><b>Feels Like</b><br> <span id="feels-like">86°F</span></td>
+            <td class="detail_unit weather-items"><b>Visibility</b><br> <span id="visibility">16 mi</span></td>
+        </tr>
+        <tr>
+            <td class="detail_unit weather-items"><b>Humidity</b><br> <span id="humidity">67%</span></td>
+            <td class="detail_unit weather-items"><b>Pressure</b><br> <span id="pressure">30.04 inHg</span></td>
+        </tr>
+    </table>
+    
+    <footer>
+        <div class="ads">
             <!--Ads-->
-            <div class="ads">
-               
-            </div>
-           
-                <h3>All rights reserved 2024</h3>
-                <h4>Developed by Sekou Traore</h4>
-           
-        </footer>
+        </div>
+        <h3>All rights reserved 2024</h3>
+        <h4>Developed by Sekou Traore</h4>
+    </footer>
 
-        <script>
-            let time = document.getElementById("current-time");
-            let d = new Date();
-            time.innerHTML = d.toLocaleTimeString();
+    <script>
+        const apiKey = '2d18756eb4b0c5ced47eb3f94f73aa5e';
+        const city = 'New York';
+        const country = 'US';
 
-            let dateEl = document.getElementById("date");
-            let r = new Date();
-            dateEl.innerHTML = r.toLocaleDateString();
-        </script>
+        async function fetchWeatherData() {
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=imperial`);
+            const data = await response.json();
+    
+            document.getElementById('temp').innerHTML = `${data.main.temp.toFixed(1)}&#176; F`;
+            document.getElementById('weather-description').innerHTML = data.weather[0].description;
+            document.getElementById('weather-icon').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+            document.getElementById('sunrise').innerHTML = new Date(data.sys.sunrise * 1000).toLocaleTimeString();
+            document.getElementById('sunset').innerHTML = new Date(data.sys.sunset * 1000).toLocaleTimeString();
+            document.getElementById('feels-like').innerHTML = `${data.main.feels_like.toFixed(1)}&#176; F`;
+            document.getElementById('visibility').innerHTML = `${(data.visibility / 1609).toFixed(1)} mi`; // Conversion from meters to miles
+            document.getElementById('humidity').innerHTML = `${data.main.humidity}%`;
+            document.getElementById('pressure').innerHTML = `${data.main.pressure} hPa`;
+        }
+    
+        function updateTimeAndDate() {
+            const time = document.getElementById("current-time");
+            const date = document.getElementById("date");
+            const now = new Date();
+            
+            time.innerHTML = now.toLocaleTimeString();
+            date.innerHTML = now.toLocaleDateString();
+        }
+
+        fetchWeatherData();
+        updateTimeAndDate();
+        setInterval(updateTimeAndDate, 1000); // Update time every second
+    </script>
 </body>
-
-
 </html>
