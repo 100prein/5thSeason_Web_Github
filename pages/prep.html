@@ -44,6 +44,8 @@
             const lon = -74.0060; // Longitude for New York
     
             async function fetchWeatherData() {
+
+                document.getElementById('weather-icon').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
                 const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely,alerts&units=imperial&appid=${apiKey}`);
                 const data = await response.json();
     
